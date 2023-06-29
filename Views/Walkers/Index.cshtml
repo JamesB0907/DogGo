@@ -18,9 +18,16 @@
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Neighborhood)
-            </th>
+                 @if (!User.Identity.IsAuthenticated)
+            {
+                <th>
+                    @Html.DisplayNameFor(model => model.Neighborhood)
+                </th>
+            }
+            else
+            {
+                
+            }
             <th>
                 @Html.DisplayNameFor(model => model.ImageUrl)
             </th>
@@ -36,9 +43,16 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Neighborhood.Name)
-            </td>
+                @if (!User.Identity.IsAuthenticated)
+                {
+                    <th>
+                        @Html.DisplayFor(model => item.Neighborhood.Name)
+                    </th>
+                }
+                else
+                {
+                   
+                }
             <td>
                     <img src="@item.ImageUrl" alt="avatar" />
             </td>

@@ -43,7 +43,7 @@ namespace DogGo.Controllers
                 Walkers = walkers,
                 Dogs = dogs
             };
-
+            viewModel.Date = DateTime.Now;
             return View(viewModel);
         }
 
@@ -69,7 +69,6 @@ namespace DogGo.Controllers
                     Date = viewModel.Date,
                     Duration = viewModel.Duration
                 };
-
                 _walkRepo.AddWalk(walk);
             }
 
